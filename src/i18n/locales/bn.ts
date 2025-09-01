@@ -50,6 +50,8 @@ export const bn: LanguageTranslation = {
                 backup: 'ব্যাকআপ',
                 export_diagram: 'ডায়াগ্রাম রপ্তানি করুন',
                 restore_diagram: 'ডায়াগ্রাম পুনরুদ্ধার করুন',
+                share_link: 'Share Link...',
+                versions: 'Manage Versions...',
             },
             help: {
                 help: 'সাহায্য',
@@ -114,6 +116,27 @@ export const bn: LanguageTranslation = {
         show_less: 'কম দেখুন',
         copy_to_clipboard: 'ক্লিপবোর্ডে অনুলিপি করুন',
         copied: 'অনুলিপি সম্পন্ন!',
+
+        share_dialog: {
+            title: 'Share Diagram',
+            description:
+                'Copy this link to share a read-only copy. Opening the link will import a clone locally.',
+            link_label: 'Shareable link',
+            close: 'Close',
+            copy: 'Copy Link',
+            copied: 'Copied!',
+        },
+
+        versions_dialog: {
+            title: 'Versions',
+            description: 'Create and restore saved versions of this diagram.',
+            name_placeholder: 'Version name (optional)',
+            create: 'Save Version',
+            empty: 'No versions yet.',
+            restore: 'Restore',
+            delete: 'Delete',
+            close: 'Close',
+        },
 
         side_panel: {
             view_all_options: 'সমস্ত বিকল্প দেখুন...',

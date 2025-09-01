@@ -50,6 +50,8 @@ export const te: LanguageTranslation = {
                 backup: 'Backup',
                 export_diagram: 'Export Diagram',
                 restore_diagram: 'Restore Diagram',
+                share_link: 'Share Link...',
+                versions: 'Manage Versions...',
             },
             help: {
                 help: 'సహాయం',
@@ -114,6 +116,27 @@ export const te: LanguageTranslation = {
         show_less: 'తక్కువ చూపించు',
         copy_to_clipboard: 'క్లిప్బోర్డుకు కాపీ చేయండి',
         copied: 'కాపీ చేయబడింది!',
+
+        share_dialog: {
+            title: 'Share Diagram',
+            description:
+                'Copy this link to share a read-only copy. Opening the link will import a clone locally.',
+            link_label: 'Shareable link',
+            close: 'Close',
+            copy: 'Copy Link',
+            copied: 'Copied!',
+        },
+
+        versions_dialog: {
+            title: 'Versions',
+            description: 'Create and restore saved versions of this diagram.',
+            name_placeholder: 'Version name (optional)',
+            create: 'Save Version',
+            empty: 'No versions yet.',
+            restore: 'Restore',
+            delete: 'Delete',
+            close: 'Close',
+        },
 
         side_panel: {
             view_all_options: 'అన్ని ఎంపికలను చూడండి...',

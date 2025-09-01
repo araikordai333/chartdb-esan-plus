@@ -22,6 +22,8 @@ import { ExportDiagramDialog } from '@/dialogs/export-diagram-dialog/export-diag
 import { ImportDiagramDialog } from '@/dialogs/import-diagram-dialog/import-diagram-dialog';
 import type { ImportDBMLDialogProps } from '@/dialogs/import-dbml-dialog/import-dbml-dialog';
 import { ImportDBMLDialog } from '@/dialogs/import-dbml-dialog/import-dbml-dialog';
+import { ShareDiagramDialog } from '@/dialogs/share-diagram-dialog/share-diagram-dialog';
+import { VersionsDialog } from '@/dialogs/versions-dialog/versions-dialog';
 
 export const DialogProvider: React.FC<React.PropsWithChildren> = ({
     children,
@@ -137,6 +139,20 @@ export const DialogProvider: React.FC<React.PropsWithChildren> = ({
     const [importDBMLDialogParams, setImportDBMLDialogParams] =
         useState<Omit<ImportDBMLDialogProps, 'dialog'>>();
 
+    // Share diagram dialog
+    const [openShareDiagramDialog, setOpenShareDiagramDialog] = useState(false);
+    const openShareDiagramDialogHandler: DialogContext['openShareDiagramDialog'] =
+        useCallback(() => {
+            setOpenShareDiagramDialog(true);
+        }, []);
+
+    // Versions dialog
+    const [openVersionsDialog, setOpenVersionsDialog] = useState(false);
+    const openVersionsDialogHandler: DialogContext['openVersionsDialog'] =
+        useCallback(() => {
+            setOpenVersionsDialog(true);
+        }, []);
+
     return (
         <dialogContext.Provider
             value={{
@@ -170,6 +186,10 @@ export const DialogProvider: React.FC<React.PropsWithChildren> = ({
                     setOpenImportDBMLDialog(true);
                 },
                 closeImportDBMLDialog: () => setOpenImportDBMLDialog(false),
+                openShareDiagramDialog: openShareDiagramDialogHandler,
+                closeShareDiagramDialog: () => setOpenShareDiagramDialog(false),
+                openVersionsDialog: openVersionsDialogHandler,
+                closeVersionsDialog: () => setOpenVersionsDialog(false),
             }}
         >
             {children}
@@ -208,6 +228,8 @@ export const DialogProvider: React.FC<React.PropsWithChildren> = ({
                 dialog={{ open: openImportDBMLDialog }}
                 {...importDBMLDialogParams}
             />
+            <ShareDiagramDialog dialog={{ open: openShareDiagramDialog }} />
+            <VersionsDialog dialog={{ open: openVersionsDialog }} />
         </dialogContext.Provider>
     );
 };

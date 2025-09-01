@@ -49,6 +49,8 @@ export const ko_KR: LanguageTranslation = {
                 backup: '백업',
                 export_diagram: '다이어그램 내보내기',
                 restore_diagram: '다이어그램 복구',
+                share_link: 'Share Link...',
+                versions: 'Manage Versions...',
             },
             help: {
                 help: '도움말',
@@ -113,6 +115,27 @@ export const ko_KR: LanguageTranslation = {
         show_less: '간략히',
         copy_to_clipboard: '클립보드에 복사',
         copied: '복사됨!',
+
+        share_dialog: {
+            title: 'Share Diagram',
+            description:
+                'Copy this link to share a read-only copy. Opening the link will import a clone locally.',
+            link_label: 'Shareable link',
+            close: 'Close',
+            copy: 'Copy Link',
+            copied: 'Copied!',
+        },
+
+        versions_dialog: {
+            title: 'Versions',
+            description: 'Create and restore saved versions of this diagram.',
+            name_placeholder: 'Version name (optional)',
+            create: 'Save Version',
+            empty: 'No versions yet.',
+            restore: 'Restore',
+            delete: 'Delete',
+            close: 'Close',
+        },
 
         side_panel: {
             view_all_options: '전체 옵션 보기...',

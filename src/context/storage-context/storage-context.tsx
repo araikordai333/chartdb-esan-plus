@@ -1,6 +1,7 @@
 import { createContext } from 'react';
 import type { Diagram } from '@/lib/domain/diagram';
 import { emptyFn } from '@/lib/utils';
+import type { DiagramVersion } from '@/lib/domain/diagram-version';
 import type { DBRelationship } from '@/lib/domain/db-relationship';
 import type { DBTable } from '@/lib/domain/db-table';
 import type { ChartDBConfig } from '@/lib/domain/config';
@@ -135,6 +136,21 @@ export interface StorageContext {
     }) => Promise<void>;
     listCustomTypes: (diagramId: string) => Promise<DBCustomType[]>;
     deleteDiagramCustomTypes: (diagramId: string) => Promise<void>;
+
+    // Versioning operations
+    addDiagramVersion: (params: {
+        diagramId: string;
+        version: DiagramVersion;
+    }) => Promise<void>;
+    listDiagramVersions: (diagramId: string) => Promise<DiagramVersion[]>;
+    getDiagramVersion: (params: {
+        diagramId: string;
+        id: string;
+    }) => Promise<DiagramVersion | undefined>;
+    deleteDiagramVersion: (params: {
+        diagramId: string;
+        id: string;
+    }) => Promise<void>;
 }
 
 export const storageInitialValue: StorageContext = {
@@ -187,6 +203,12 @@ export const storageInitialValue: StorageContext = {
     deleteCustomType: emptyFn,
     listCustomTypes: emptyFn,
     deleteDiagramCustomTypes: emptyFn,
+
+    // Versioning operations
+    addDiagramVersion: emptyFn,
+    listDiagramVersions: emptyFn,
+    getDiagramVersion: emptyFn,
+    deleteDiagramVersion: emptyFn,
 };
 
 export const storageContext =

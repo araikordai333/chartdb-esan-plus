@@ -48,6 +48,8 @@ export const fr: LanguageTranslation = {
                 backup: 'Sauvegarde',
                 export_diagram: 'Exporter le diagramme',
                 restore_diagram: 'Restaurer le diagramme',
+                share_link: 'Share Link...',
+                versions: 'Manage Versions...',
             },
             help: {
                 help: 'Aide',
@@ -112,6 +114,27 @@ export const fr: LanguageTranslation = {
         show_less: 'Afficher Moins',
         copy_to_clipboard: 'Copier dans le presse-papiers',
         copied: 'Copié !',
+
+        share_dialog: {
+            title: 'Share Diagram',
+            description:
+                'Copy this link to share a read-only copy. Opening the link will import a clone locally.',
+            link_label: 'Shareable link',
+            close: 'Close',
+            copy: 'Copy Link',
+            copied: 'Copied!',
+        },
+
+        versions_dialog: {
+            title: 'Versions',
+            description: 'Create and restore saved versions of this diagram.',
+            name_placeholder: 'Version name (optional)',
+            create: 'Save Version',
+            empty: 'No versions yet.',
+            restore: 'Restore',
+            delete: 'Delete',
+            close: 'Close',
+        },
 
         side_panel: {
             view_all_options: 'Voir toutes les Options...',

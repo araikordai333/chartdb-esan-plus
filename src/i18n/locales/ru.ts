@@ -48,6 +48,8 @@ export const ru: LanguageTranslation = {
                 backup: 'Бэкап',
                 export_diagram: 'Экспорт диаграммы',
                 restore_diagram: 'Восстановить диаграмму',
+                share_link: 'Share Link...',
+                versions: 'Manage Versions...',
             },
             help: {
                 help: 'Помощь',
@@ -491,6 +493,27 @@ export const ru: LanguageTranslation = {
 
         copy_to_clipboard: 'Скопировать в буфер обмена',
         copied: 'Скопировано!',
+
+        share_dialog: {
+            title: 'Share Diagram',
+            description:
+                'Copy this link to share a read-only copy. Opening the link will import a clone locally.',
+            link_label: 'Shareable link',
+            close: 'Close',
+            copy: 'Copy Link',
+            copied: 'Copied!',
+        },
+
+        versions_dialog: {
+            title: 'Versions',
+            description: 'Create and restore saved versions of this diagram.',
+            name_placeholder: 'Version name (optional)',
+            create: 'Save Version',
+            empty: 'No versions yet.',
+            restore: 'Restore',
+            delete: 'Delete',
+            close: 'Close',
+        },
         snap_to_grid_tooltip: 'Выравнивание по сетке (Удерживайте {{key}})',
         tool_tips: {
             double_click_to_edit: 'Кликните дважды, чтобы изменить',

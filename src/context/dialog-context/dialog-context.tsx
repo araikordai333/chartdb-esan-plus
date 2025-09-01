@@ -10,6 +10,8 @@ import type { CreateRelationshipDialogProps } from '@/dialogs/create-relationshi
 import type { ImportDBMLDialogProps } from '@/dialogs/import-dbml-dialog/import-dbml-dialog';
 import type { OpenDiagramDialogProps } from '@/dialogs/open-diagram-dialog/open-diagram-dialog';
 import type { CreateDiagramDialogProps } from '@/dialogs/create-diagram-dialog/create-diagram-dialog';
+import type { ShareDiagramDialogProps } from '@/dialogs/share-diagram-dialog/share-diagram-dialog';
+import type { VersionsDialogProps } from '@/dialogs/versions-dialog/versions-dialog';
 
 export interface DialogContext {
     // Create diagram dialog
@@ -73,6 +75,16 @@ export interface DialogContext {
         params?: Omit<ImportDBMLDialogProps, 'dialog'>
     ) => void;
     closeImportDBMLDialog: () => void;
+
+    // Share diagram dialog
+    openShareDiagramDialog: (
+        params?: Omit<ShareDiagramDialogProps, 'dialog'>
+    ) => void;
+    closeShareDiagramDialog: () => void;
+
+    // Versions dialog
+    openVersionsDialog: (params?: Omit<VersionsDialogProps, 'dialog'>) => void;
+    closeVersionsDialog: () => void;
 }
 
 export const dialogContext = createContext<DialogContext>({
@@ -98,4 +110,8 @@ export const dialogContext = createContext<DialogContext>({
     closeImportDiagramDialog: emptyFn,
     openImportDBMLDialog: emptyFn,
     closeImportDBMLDialog: emptyFn,
+    openShareDiagramDialog: emptyFn,
+    closeShareDiagramDialog: emptyFn,
+    openVersionsDialog: emptyFn,
+    closeVersionsDialog: emptyFn,
 });

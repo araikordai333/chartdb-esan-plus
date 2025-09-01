@@ -17,7 +17,7 @@ export const useDiagramLoader = () => {
     const { showLoader, hideLoader } = useFullScreenLoader();
     const { openCreateDiagramDialog, openOpenDiagramDialog } = useDialog();
     const navigate = useNavigate();
-    const { listDiagrams } = useStorage();
+    const { listDiagrams, addDiagram } = useStorage();
 
     const currentDiagramLoadingRef = useRef<string | undefined>(undefined);
 
@@ -30,7 +30,38 @@ export const useDiagramLoader = () => {
             return;
         }
 
+        const decodeShare = (hash: string): string | null => {
+            try {
+                const data = hash.replace(/^#share=/, '');
+                // base64 decode handling unicode
+                const json = decodeURIComponent(escape(atob(data)));
+                return json;
+            } catch {
+                return null;
+            }
+        };
+
         const loadDefaultDiagram = async () => {
+            // Import shared diagram via hash if present
+            if (!diagramId && window.location.hash.startsWith('#share=')) {
+                const json = decodeShare(window.location.hash);
+                if (json) {
+                    try {
+                        const { diagramFromJSONInput } = await import(
+                            '@/lib/export-import-utils'
+                        );
+                        const diagram = diagramFromJSONInput(json);
+                        await addDiagram({ diagram });
+                        // Clear hash to avoid re-import
+                        window.location.hash = '';
+                        navigate(`/diagrams/${diagram.id}`);
+                        return;
+                    } catch {
+                        // fall through to default flow
+                    }
+                }
+            }
+
             if (diagramId) {
                 setInitialDiagram(undefined);
                 showLoader();
@@ -79,6 +110,7 @@ export const useDiagramLoader = () => {
         config,
         navigate,
         listDiagrams,
+        addDiagram,
         loadDiagram,
         resetRedoStack,
         resetUndoStack,
